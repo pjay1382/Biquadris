@@ -34,6 +34,10 @@ vector <string> rotate4 { // rotate 270 degrees clockwise
 
 const vector<vector<string>> jBlock::jBlockRotations = {rotate1, rotate2, rotate3, rotate4};
 
-jBlock::jBlock(bool heavy_effect) : Block(0, 0, 0, heavy_effect, false) {}
+jBlock::jBlock(bool heavy_effect) : Block(0, 0, 0, false, heavy_effect) {}
 
-char jblock::get
+char jblock::get_block_type() { return 'J'; }
+
+vector<vector<string>> jBlock::get_block() { return jBlockRotations; }
+
+jBlock::~jBlock() {}
