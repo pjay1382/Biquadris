@@ -5,28 +5,28 @@
 #include <vector>
 using namespace std;
 
-vector<string> rotate1 { // no rotation
+vector<string> rotate1 {
         "....",
         "....",
         "J...",
         "JJJ."
 };
 
-vector<string> rotate2 { // rotate 90 degrees clockwise
+vector<string> rotate2 {
         "....",
         "JJ..",
         "J...",
         "J..."
 };
 
-vector<string> rotate3 { // rotate 180 degrees clockwise
+vector<string> rotate3 {
         "....",
         "....",
         "JJJ.",
         "..J."
 };
 
-vector <string> rotate4 { // rotate 270 degrees clockwise
+vector <string> rotate4 {
         "....",
         ".J..",
         ".J..",
