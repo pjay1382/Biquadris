@@ -33,7 +33,7 @@ vector <string> rotate4 {
         "JJ.."
 };
 
-const vector<vector<string>> jBlock::jBlockRotations = {rotate1, rotate2, rotate3, rotate4};
+vector<vector<string>> jBlock::jBlockRotations = {rotate1, rotate2, rotate3, rotate4};
 
 jBlock::jBlock(bool heavy_effect) : Block(0, 0, 0, false, heavy_effect) {}
 
