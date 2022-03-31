@@ -14,7 +14,7 @@ vector<string> rotate1 {
 
 vector<vector<string>> lvl4Block::lvl4BlockRotations = {rotate1, rotate1, rotate1, rotate1};
 
-lvl4Block::lvl4Block(bool heavy_effect) : Block(5, 0, 0, false, heavy_effect) {}
+lvl4Block::lvl4Block() : Block(5, 0, 0, false, false) {}
 
 char lvl4Block::get_block_type() { return '*'; }
 
