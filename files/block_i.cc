@@ -19,21 +19,7 @@ vector<string> rotate2 {
         "I..."
 };
 
-vector<string> rotate3 {
-        "....",
-        "....",
-        "....",
-        "IIII"
-};
-
-vector <string> rotate4 {
-        "I...",
-        "I...",
-        "I...",
-        "I..."
-};
-
-vector<vector<string>> iBlock::iBlockRotations = {rotate1, rotate2, rotate3, rotate4};
+vector<vector<string>> iBlock::iBlockRotations = {rotate1, rotate2, rotate1, rotate2};
 
 iBlock::iBlock(bool heavy_effect) : Block(0, 0, 0, false, heavy_effect) {}
 
