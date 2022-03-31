@@ -1,5 +1,5 @@
 #include "block.h"
-#include "block_j.h"
+#include "block_i.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -8,37 +8,37 @@ using namespace std;
 vector<string> rotate1 {
         "....",
         "....",
-        "J...",
-        "JJJ."
+        "....",
+        "IIII"
 };
 
 vector<string> rotate2 {
-        "....",
-        "JJ..",
-        "J...",
-        "J..."
+        "I...",
+        "I...",
+        "I...",
+        "I..."
 };
 
 vector<string> rotate3 {
         "....",
         "....",
-        "JJJ.",
-        "..J."
+        "....",
+        "IIII"
 };
 
 vector <string> rotate4 {
-        "....",
-        ".J..",
-        ".J..",
-        "JJ.."
+        "I...",
+        "I...",
+        "I...",
+        "I..."
 };
 
-vector<vector<string>> jBlock::jBlockRotations = {rotate1, rotate2, rotate3, rotate4};
+vector<vector<string>> iBlock::iBlockRotations = {rotate1, rotate2, rotate3, rotate4};
 
-jBlock::jBlock(bool heavy_effect) : Block(0, 0, 0, false, heavy_effect) {}
+iBlock::iBlock(bool heavy_effect) : Block(0, 0, 0, false, heavy_effect) {}
 
-char jblock::get_block_type() { return 'J'; }
+char iblock::get_block_type() { return 'J'; }
 
-vector<vector<string>> jBlock::get_block() { return jBlockRotations; }
+vector<vector<string>> iBlock::get_block() { return iBlockRotations; }
 
-jBlock::~jBlock() {}
+iBlock::~iBlock() {}
