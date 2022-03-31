@@ -8,32 +8,11 @@ using namespace std;
 vector<string> rotate1 {
         "....",
         "....",
-        "J...",
-        "JJJ."
+        "OO..",
+        "OO.."
 };
 
-vector<string> rotate2 {
-        "....",
-        "JJ..",
-        "J...",
-        "J..."
-};
-
-vector<string> rotate3 {
-        "....",
-        "....",
-        "JJJ.",
-        "..J."
-};
-
-vector <string> rotate4 {
-        "....",
-        ".J..",
-        ".J..",
-        "JJ.."
-};
-
-vector<vector<string>> oBlock::oBlockRotations = {rotate1, rotate2, rotate3, rotate4};
+vector<vector<string>> oBlock::oBlockRotations = {rotate1, rotate1, rotate1, rotate1};
 
 oBlock::oBlock(bool heavy_effect) : Block(0, 0, 0, false, heavy_effect) {}
 
