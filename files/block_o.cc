@@ -16,7 +16,7 @@ vector<vector<string>> oBlock::oBlockRotations = {rotate1, rotate1, rotate1, rot
 
 oBlock::oBlock(bool heavy_effect) : Block(0, 0, 0, false, heavy_effect) {}
 
-char oblock::get_block_type() { return 'O'; }
+char oBlock::get_block_type() { return 'O'; }
 
 vector<vector<string>> oBlock::get_block() { return oBlockRotations; }
 
