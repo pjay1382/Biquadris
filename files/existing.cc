@@ -9,7 +9,7 @@ int Existing::getRow() { return row; }
 
 void Existing::setRow(int ro) { row = ro; }
 
-int Exsiting::getLevel() { return lvl; }
+int Existing::getLevel() { return lvl; }
 
 void Existing::setRemove(bool remove) { removed = remove; }
 
