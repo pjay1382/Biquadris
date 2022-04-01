@@ -39,6 +39,6 @@ tBlock::tBlock(bool heavy_effect) : Block(0, 0, 0, false, heavy_effect) {}
 
 char tblock::get_block_type() { return 'T'; }
 
-vector<vector<string>> jBlock::get_block() { return tBlockRotations; }
+vector<vector<string>> tBlock::get_block() { return tBlockRotations; }
 
 tBlock::~tBlock() {}
