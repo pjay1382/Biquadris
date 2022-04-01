@@ -16,9 +16,9 @@ int Block::get_col() { return col; }
 
 int Block::get_rotate() { return rotate; }
 
-bool Block::heavy_level?() { return heavy_level; }
+bool Block::get_heavy_level() { return heavy_level; }
 
-bool Block::effect_heavy?() { return heavy_effect; }
+bool Block::get_effect_heavy() { return heavy_effect; }
 
 void Block::set_row(int r) { row = r; }
 
