@@ -23,7 +23,7 @@ vector<vector<string>> sBlock::sBlockRotations = {rotate1, rotate2, rotate1, rot
 
 sBlock::sBlock(bool heavy_effect) : Block(0, 0, 0, false, heavy_effect) {}
 
-char sblock::get_block_type() { return 'S'; }
+char sBlock::get_block_type() { return 'S'; }
 
 vector<vector<string>> sBlock::get_block() { return sBlockRotations; }
 
