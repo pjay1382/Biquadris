@@ -28,4 +28,4 @@ void Block::set_rotate(int rot) { rotate = rot; }
 
 void Block::set_effect_heavy(bool eh) { heavy_effect = eh; }
 
-void Block::set_effect_level(bool lh) { heavy_level = lh; }
+void Block::set_level_heavy(bool lh) { heavy_level = lh; }
