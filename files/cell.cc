@@ -10,10 +10,10 @@ void Cell::setRow(int Row) { row = Row; }
 
 void Cell::setPiece(char my_piece) {
 	occupied = true;
-	(occupied) ? board_piece = my_piece;
+	board_piece = my_piece;
 }
 
 void Cell::unsetPiece() {
 	occupied = false;
-	(!occupied) ? board_piece = ' ';
+	board_piece = ' ';
 }
