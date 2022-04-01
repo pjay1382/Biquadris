@@ -26,6 +26,6 @@ void Block::set_col(int c) { col = c; }
 
 void Block::set_rotate(int rot) { rotate = rot; }
 
-void Block::effect_heavy(bool eh) { heavy_effect = eh; }
+void Block::set_effect_heavy(bool eh) { heavy_effect = eh; }
 
-void Block::effect_level(bool lh) { heavy_level = lh; }
+void Block::set_effect_level(bool lh) { heavy_level = lh; }
