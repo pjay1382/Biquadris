@@ -23,7 +23,7 @@ vector<vector<string>> iBlock::iBlockRotations = {rotate1, rotate2, rotate1, rot
 
 iBlock::iBlock(bool heavy_effect) : Block(0, 0, 0, false, heavy_effect) {}
 
-char iblock::get_block_type() { return 'I'; }
+char iBlock::get_block_type() { return 'I'; }
 
 vector<vector<string>> iBlock::get_block() { return iBlockRotations; }
 
