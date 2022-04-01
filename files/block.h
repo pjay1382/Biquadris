@@ -18,8 +18,8 @@ class Block {
         int get_row();
         int get_col();
         int get_rotate();
-        bool heavy_level?();
-        bool effect_heavy?();
+        bool get_heavy_level();
+        bool get_effect_heavy();
         void set_row(int r);
         void set_col(int c);
         void set_rotate(int rot);
