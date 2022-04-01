@@ -37,7 +37,7 @@ vector<vector<string>> jBlock::jBlockRotations = {rotate1, rotate2, rotate3, rot
 
 jBlock::jBlock(bool heavy_effect) : Block(0, 0, 0, false, heavy_effect) {}
 
-char jblock::get_block_type() { return 'J'; }
+char jBlock::get_block_type() { return 'J'; }
 
 vector<vector<string>> jBlock::get_block() { return jBlockRotations; }
 
