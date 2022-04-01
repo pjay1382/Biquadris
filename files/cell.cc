@@ -13,7 +13,7 @@ void Cell::setPiece(char my_piece) {
 	(occupied) ? board_piece = my_piece;
 }
 
-void Cell:unsetPiece() {
+void Cell::unsetPiece() {
 	occupied = false;
 	(!occupied) ? board_piece = ' ';
 }
