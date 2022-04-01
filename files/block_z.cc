@@ -23,7 +23,7 @@ vector<vector<string>> zBlock::zBlockRotations = {rotate1, rotate2, rotate1, rot
 
 zBlock::zBlock(bool heavy_effect) : Block(0, 0, 0, false, heavy_effect) {}
 
-char zblock::get_block_type() { return 'Z'; }
+char zBlock::get_block_type() { return 'Z'; }
 
 vector<vector<string>> zBlock::get_block() { return zBlockRotations; }
 
