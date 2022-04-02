@@ -9,7 +9,7 @@ Force::Force(Board *board, char block_type) : Effects{board}, block_type{block_t
 void Force::add_effect(Gameboard &g) {
 	board->add_effect(g);
 
-	if(g.getSetForce()) {
+	if(g.getSetForce(-1)) {
         	bool isheavy = false;
         	if (g.getLvl() >= 4) isheavy = true;
         	Block* nextBlock = nullptr;
