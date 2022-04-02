@@ -10,6 +10,6 @@ class Effects: public Board {
         Effects(Board *board);
         void add_effect(Gameboard *g) override;
         virtual ~Effects();
-}
+};
 
 #endif
