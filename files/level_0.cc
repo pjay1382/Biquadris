@@ -6,7 +6,7 @@
 
 using namespace std;
 
-Level0::Level0(bool random, string file_name = ""): random{random},
+Level0::Level0(bool random, string file_name): random{random},
     file_name{file_name} {}
 
 
