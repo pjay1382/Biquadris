@@ -11,53 +11,29 @@ void Force::add_effect(Gameboard &g) {
 
 	if(g.getSetForce()) {
         	bool isheavy = false;
-        	if (g.getLevel() == 3 || g.getLevel() == 4) {
-			isheavy = true;
-            }
-
-        	Block * oldBlock = g.getCurBlock();
-        	Block * newBlock = nullptr;
-        	if (block == 'I') {
-			newBlock = new Iblock{isheavy};
-            }
-        	else if (block == 'J') {
-                	newBlock = new Jblock{isheavy};
-        	}
-        	else if (block == 'L') {
-                	newBlock = new Lblock{isheavy};
-        	}
-        	else if (block == 'O') {
-                	newBlock = new Oblock{isheavy};
-        	}
-        	else if (block == 'S') {
-                	newBlock = new Sblock{isheavy};
-        	}
-        	else if (block == 'Z') {
-                	newBlock = new Zblock{isheavy};
-        	}
-        	else if (block == 'T') {
-                	newBlock = new Tblock{isheavy};
-        	}
-        	else {
-                	return;
-        	}
-
-        	newBlock->setX(oldBlock->getX());
-        	newBlock->setY(oldBlock->getY());
+        	if (g.getLvl() >= 4) isheavy = true;
+        	Block* nextBlock = nullptr;
+        	Block* curBlock = g.getCur()
+        	if (block == 'S') nextBlock = new sBlock{isheavy};
+        	else if (block == 'Z') nextBlock = new zBlock{isheavy};
+        	else if (block == 'T') nextBlock = new tBlock{isheavy};
+		else if (block == 'I') nextBlock = new iBlock{isheavy};
+		else if (block == 'O') nextBlock = new oBlock{isheavy};
+		else if (block == 'J') nextBlock = new jBlock{isheavy};
+		else if (block == 'L') nextBlock = new lBlock{isheavy};
+        	else return;
+        	nextBlock->setX(curBlock->getX());
+        	nextBlock->setY(curBlock->getY());
         	g.unsetBlock();
-        	g.setCurBlock(newBlock);
-
-        	if (g.validMove(0, 0, 0)) {
-			g.moveBlock(0, 0, 0);
-                	delete oldBlock;
-		} else {
-                	g.setCurBlock(oldBlock);
-                	g.moveBlock(0, 0, 0);
-                	delete newBlock;
-			g.setDead(true);
+        	g.setCurBlock(nextBlock);
+        	if (g.move(0, 0, 0)) delete curBlock;
+		else {
+                	g.CurBlock(curBlock);
+                	g.move(0, 0, 0);
+                	delete nextBlock;
+			g.getSetGameOver(1);
         	}
 	}
 }
-
 
 Force::~Force() {}
