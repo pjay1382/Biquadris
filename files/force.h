@@ -2,7 +2,7 @@
 #define FORCE_H
 
 #include "effects.h"
-#include "board.h"
+#include "gameboard.h"
 
 
 class Force: public Effects {
