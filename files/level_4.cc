@@ -46,16 +46,16 @@ Block *Level4::next_block(int index) {
 
 
 
-int Level4::get_lvl() { return cur_lvl; }
+int Level4::getlvl() { return cur_lvl; }
 
 
-bool Level4::is_random() { return random; }
+bool Level4::israndom() { return random; }
 
 
-string Level4::get_file() { return file_name; }
+string Level4::getfile() { return file_name; }
 
 
-void Level4::get_block(){
+void Level4::getblock(){
     if (!(random)) {
         char block_piece;
         inp.open(file_name);
