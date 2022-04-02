@@ -1,3 +1,3 @@
-#include "Board.h"
+#include "board.h"
 
 Board::~Board(){}
