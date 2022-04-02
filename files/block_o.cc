@@ -4,14 +4,14 @@
 #include <vector>
 using namespace std;
 
-vector<string> rotate1 {
+vector<string> orotate1 {
         "....",
         "....",
         "OO..",
         "OO.."
 };
 
-vector<vector<string>> oBlock::oBlockRotations = {rotate1, rotate1, rotate1, rotate1};
+vector<vector<string>> oBlock::oBlockRotations = {orotate1, orotate1, orotate1, orotate1};
 
 oBlock::oBlock(bool heavy_effect) : Block(0, 0, 0, false, heavy_effect) {}
 
