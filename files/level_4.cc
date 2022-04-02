@@ -9,7 +9,7 @@
 using namespace std;
 
 Level4::Level4(bool random, string file_name = ""): random{random}, 
-    file_name{file_name} {}
+    file_name{file_name} { blocks.clear(); }
 
 
 Level4::~Level4() {}
