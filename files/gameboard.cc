@@ -256,6 +256,8 @@ int Gameboard::getSetHeavy(int eff_heavy) {
         }
 }
 
+void Gameboard::add_effect(Gameboard &g) {}
+
 int Gameboard::getSetGameOver(int over) {
         if(over == -1) {
                 (isgameOver)? return 1 : return 0;
