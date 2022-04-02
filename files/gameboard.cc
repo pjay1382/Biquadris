@@ -205,7 +205,7 @@ void Gameboard::lvlChange(int lvl, string sequence) {
 		else level = new Level1(false, sequence);
 		this->lvl = lvl;
         } else if(lvl == 0) {
-		level = new Level0(sequence);
+		level = new Level0(fasle, sequence);
 	}
 }
 
