@@ -256,15 +256,15 @@ int Gameboard::heavy?(int eff_heavy) {
         }
 }
 
-int Gameboard::GameOver?(int over) {
+int Gameboard::getSetGameOver(int over) {
         if(over == -1) {
-                (gameOver?)? return 1 : return 0;
+                (isgameOver)? return 1 : return 0;
         }
         else if(over == 0) {
-                gameOver? = false;
+                isgameOver = false;
                 return -1;
         } else if (over == 1) {
-                gameOver? = true;
+                isgameOver = true;
                 return -1;
         }
 }
