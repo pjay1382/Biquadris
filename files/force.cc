@@ -22,8 +22,8 @@ void Force::add_effect(Gameboard &g) {
 		else if (block == 'J') nextBlock = new jBlock{isheavy};
 		else if (block == 'L') nextBlock = new lBlock{isheavy};
         	else return;
-        	nextBlock->setX(curBlock->getX());
-        	nextBlock->setY(curBlock->getY());
+        	nextBlock->set_col(curBlock->get_col());
+        	nextBlock->set_row(curBlock->get_row());
         	g.unsetBlock();
         	g.setCurBlock(nextBlock);
         	if (g.move(0, 0, 0)) delete curBlock;
