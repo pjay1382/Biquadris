@@ -2,6 +2,7 @@
 #include "block_lvl4.h"
 #include <string>
 #include <vector>
+using namespace std;
 
 vector<string> rotate1 {
         "....",
