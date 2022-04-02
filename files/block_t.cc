@@ -4,35 +4,35 @@
 #include <vector>
 using namespace std;
 
-vector<string> rotate1 {
+vector<string> trotate1 {
         "....",
         "....",
         "TTT.",
         ".T.."
 };
 
-vector<string> rotate2 {
+vector<string> trotate2 {
         "....",
         ".T..",
         "TT..",
         ".T.."
 };
 
-vector<string> rotate3 {
+vector<string> trotate3 {
         "....",
         "....",
         ".T..",
         "TTT."
 };
 
-vector <string> rotate4 {
+vector <string> trotate4 {
         "....",
         "T...",
         "TT..",
         "T..."
 };
 
-vector<vector<string>> tBlock::tBlockRotations = {rotate1, rotate2, rotate3, rotate4};
+vector<vector<string>> tBlock::tBlockRotations = {trotate1, trotate2, trotate3, trotate4};
 
 tBlock::tBlock(bool heavy_effect) : Block(0, 0, 0, false, heavy_effect) {}
 
