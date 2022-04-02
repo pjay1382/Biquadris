@@ -20,10 +20,10 @@ class Level {
     public:
         virtual ~Level();
         virtual Block *next_block(int index) = 0;
-        virtual int get_lvl() = 0;
-        virtual bool is_random() = 0;
-        virtual std::string get_file() = 0;
-        virtual void get_block() = 0;
+        virtual int getlvl() = 0;
+        virtual bool israndom() = 0;
+        virtual std::string getfile() = 0;
+        virtual void getblock() = 0;
 };
 
 #endif
