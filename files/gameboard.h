@@ -5,8 +5,8 @@
 class Gameboard: public Board {
     int columns;
     int rows;
-    vector<vector<Cell>> board;
-    vector<vector<Existing>> oldblocks;
+    std::vector<std::vector<Cell>> board;
+    std::vector<std::vector<Existing>> oldblocks;
     std::string name;
     bool random = true;
     bool iseffect = false;
@@ -21,7 +21,7 @@ class Gameboard: public Board {
     Block *curBlock = nullptr;
     Block *nextBlock = nullptr;
     public:
-    Gameboard(int columns, int rows,string name, int level);
+    Gameboard(int columns, int rows, std::string name, int level);
     ~Gameboard();
     void build();
     void restart();
@@ -43,7 +43,7 @@ class Gameboard: public Board {
     int getSeteffectneeded(int effect);
     int getSetBlind(int eff_blind);
     int getSetHeavy(int eff_heavy);
-    int getSetBlind(int eff_force);
+    int getSetForce(int eff_force);
     virtual void add_effect(Gameboard &g) override;
     int getSetGameOver(int over);
     void remblock();
