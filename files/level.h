@@ -15,7 +15,7 @@
 
 class Level {
     protected:
-        vector<char> blocks;
+        std::vector<char> blocks;
 
     public:
         virtual ~Level();
