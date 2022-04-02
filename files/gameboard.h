@@ -44,6 +44,7 @@ class Gameboard: public Board {
     int getSetBlind(int eff_blind);
     int getSetHeavy(int eff_heavy);
     int getSetBlind(int eff_force);
+    void add_effect(Gameboard &g) override;
     int getSetGameOver(int over);
     void remblock();
     vector<vector<Cell>>& getGameboardRef();
