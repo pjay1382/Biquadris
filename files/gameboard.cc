@@ -40,26 +40,26 @@ bool Gameboard::move(int lr, int ud, int rotate_amt) {
 	if( lr == ud && rotate_amt == ud && ud == 0) {
 		for(i = 1; i <= 4; ++i) {
 			for(j = 1; j <= 4; ++j) {
-				int pos_ud_nomove = curBlock->get_row() + i - 1;
-				int pos_ud_move = curBlock->get_row() + i - 1 + ud;
-				int pos_lr_nomove = curBlock->get_col() + j - 1;
-				int pos_lr_move = curBlock->get_col() + j - 1 + lr;
+				int pos_ud_nomove = curBlock->getY() + i - 1;
+				int pos_ud_move = curBlock->getY() + i - 1 + ud;
+				int pos_lr_nomove = curBlock->getX() + j - 1;
+				int pos_lr_move = curBlock->getX() + j - 1 + lr;
 				char board_piece_nomove = curBlock->getBlock()[curBlock->get_rotate()][i - 1][j - 1];
 				char board_piece_move = curBlock->getBlock()[actual_rotate][i - 1][j - 1];
 				if(board_piece_nomove != '.') {
 					if(pos_ud_nomove < 0 || pos_ud_nomove>= rows || pos_lr_nomove < 0 || pos_ul_nomove >= columns) 
 						flag = false;
-					if(board[pos_ud_nomove][pos_lr_nomove].occupied?)
+					if(board[pos_ud_nomove][pos_lr_nomove].isoccupied)
 						flag = false;
 				}
 				if(board_piece_move != '.') {
 					if(pos_ud_move < 0 || pos_ud_move >= columns || pos_lr_move < 0 || pos_lr_move >= rows)
 						flag = false;
-					if(board[pos_ud_move][pos_lr_move].occupied? && 
-							(pos_ud_move < curBlock->get_row() || pos_ud_move < (curBlock->get_row()+3) || 
-							 pos_lr_move < curBlock->get_col() || pos_lr_move < (curBlock->get_col()+3)))
+					if(board[pos_ud_move][pos_lr_move].isoccupied && 
+							(pos_ud_move < curBlock->getY() || pos_ud_move < (curBlock->getY()+3) || 
+							 pos_lr_move < curBlock->getX() || pos_lr_move < (curBlock->getX()+3)))
 						flag = false;
-					if(board[pos_ud_move][pos_lr_move].occupied? && curBlock->getBlock()[curBlock->getrotate()][i+up][j+lr] == '.')
+					if(board[pos_ud_move][pos_lr_move].isoccupied && curBlock->getBlock()[curBlock->getrotate()][i+up][j+lr] == '.')
 						flag = false;
 				}
 			}
@@ -74,8 +74,8 @@ bool Gameboard::move(int lr, int ud, int rotate_amt) {
 			}
 		}
 	}
-	curBlock->setX(curBlock->get_col() + lf);
-	curBlock->setY(curBlock->get_row() + ud);
+	curBlock->setX(curBlock->getX() + lf);
+	curBlock->setY(curBlock->getY() + ud);
 	curBlock->set_rotate(actual_rotate);
 	return true;
 }
@@ -109,17 +109,17 @@ void Gameboard::adjustboard() {
 	}
 	int lines_cleared=0, i, j, k, l;
 	for(i = 1; i <= 4; ++i) {
-		if(curBlock->get_row()+i-1 < rows) {
+		if(curBlock->getY()+i-1 < rows) {
 			int flag = 1;
 			for(j = 1; j <= 4; ++j) {
-				(!board[curBlock()get_row()+i-1][j-1].occupied?) ? {flag = 0; break;} : continue;
+				(!board[curBlock()getY()+i-1][j-1].isoccupied) ? {flag = 0; break;} : continue;
 			}
 			if(flag) {
-				int row_cleared = curBlock->get_row()+i-1;
+				int row_cleared = curBlock->getY()+i-1;
 				for(k = 0; k < columns, ++k) {
 					bool delete = true;
 					for(l = 0; l < 4; ++l) {
-						if(oldBlocks[k][l].get_row() == row_cleared) 
+						if(oldBlocks[k][l].getY() == row_cleared) 
 							oldBlocks[k][l].setClear(true);
 						if(!oldBlocks[k][l].getClear())
 							delete = false;
@@ -134,7 +134,7 @@ void Gameboard::adjustboard() {
 				}
 				for(k = lines_cleared-1; k > 0; --k) {
 					for(l = 0; l < columns; ++l) {
-						(board[k][l].occupied?) ? board[k+1][j].setPiece(board[k][l].getPiece()) : board[k+1][j].unsetPiece();
+						(board[k][l].isoccupied) ? board[k+1][j].setPiece(board[k][l].getPiece()) : board[k+1][j].unsetPiece();
 					}
 				}
 				for(k = 1; k <= columns; ++k) {
@@ -147,7 +147,7 @@ void Gameboard::adjustboard() {
 	if(lines_cleared) {
 		for(i = 0; i < oldBlocks.size(); ++i) {
 			for(j = 0; j < 4; j++) {
-				oldBlocks[i][j].setRow(oldBlocks[i][j].get_row() + lines_cleared);
+				oldBlocks[i][j].setRow(oldBlocks[i][j].getY() + lines_cleared);
 				if(oldBlocks[i].size() == 1)
 					break;
 			}
@@ -164,8 +164,8 @@ void Gameboard::rmblock() {
 	int i, j;
 	 for(i = 1; i <= 4; ++i) {
 		 for(j = 1; j <= 4; ++j) {
-			 int pos_ud_nomove = curBlock->get_row() + i - 1;
-			 int pos_lr_nomove = curBlock->get_col() + j - 1;
+			 int pos_ud_nomove = curBlock->getY() + i - 1;
+			 int pos_lr_nomove = curBlock->getX() + j - 1;
 			 char board_piece_nomove = curBlock->getBlock()[curBlock->get_rotate()][i - 1][j - 1];
 			 if(board_piece_nomove != '.') {
 				 board[pos_ud_nomove][pos_lr_nomove].unsetPiece();
