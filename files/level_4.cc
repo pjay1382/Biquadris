@@ -61,7 +61,7 @@ void Level4::getblock(){
         inp.open(file_name);
         inp>>block_piece;
         while(true) {
-            if(block_piece != "") blocks.emplace_back(block_piece);
+            if(block_piece) blocks.emplace_back(block_piece);
             else break;
             inp>>block_piece;
         }
