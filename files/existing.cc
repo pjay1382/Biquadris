@@ -1,5 +1,4 @@
 #include "existing.h"
-using namespace std;
 
 Existing::Existing(int row, int lvl): row{row}, lvl{lvl} {}
 
