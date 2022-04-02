@@ -21,7 +21,7 @@ Block *Level4::next_block(int index) {
         get_block();
         num = index % blocks.size();        
     } else {
-        blocks.clear;
+        blocks.clear();
         blocks = {'Z', 'Z', 'S', 'S', 'L', 'T', 'O', 'J', 'I'};
         num = rand() % blocks.size();
     }
@@ -39,8 +39,7 @@ Block *Level4::next_block(int index) {
         return new jBlock{true};
     } else if ((streak > 0) && (streak % 5 == 0)) {
         return new lvl4Block{true};
-    } else {
-        (blocks[num] == 'I') {
+    } else if (blocks[num] == 'I') {
         return new iBlock{true};
     }
 }
