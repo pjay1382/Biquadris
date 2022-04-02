@@ -15,7 +15,7 @@ Level0::~Level0() {}
 
 Block *Level0::next_block(int index) {
     int num;
-    get_block();
+    getblock();
     num = index % blocks.size();        
     if (blocks[num] == 'Z') { 
         return new zBlock{true};
