@@ -38,7 +38,7 @@ Block *Level4::next_block(int index) {
     } else if (blocks[num] == 'J') {
         return new jBlock{true};
     } else if ((streak > 0) && (streak % 5 == 0)) {
-        return new lvl4Block{true};
+        return new lvl4Block{};
     } else if (blocks[num] == 'I') {
         return new iBlock{true};
     }
