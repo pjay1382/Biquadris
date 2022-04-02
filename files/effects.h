@@ -7,7 +7,7 @@ class Effects: public Board {
     protected:
         Board *board;
     public:
-        Effects(Board *b);
+        Effects(Board *board);
         void add_effect(Gameboard *g) override;
         virtual ~Effects();
 }
