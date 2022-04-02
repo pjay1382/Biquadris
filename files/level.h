@@ -22,7 +22,7 @@ class Level {
         virtual Block *next_block(int index) = 0;
         virtual int get_lvl() = 0;
         virtual bool is_random() = 0;
-        virtual std::string get_lvl() = 0;
+        virtual std::string get_file() = 0;
         virtual void get_block() = 0;
 };
 
