@@ -7,7 +7,7 @@ Force::Force(Board *board, char block_type) : Effects{board}, block_type{block_t
 
 
 void Force::add_effect(Gameboard &g) {
-	board->apply(g);
+	board->add_effect(g);
 
 	if(g.getSetForce()) {
         	bool isheavy = false;
