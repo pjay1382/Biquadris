@@ -30,7 +30,6 @@ Block *Level0::next_block(int index) {
     } else if (blocks[num] == 'J') {
         return new jBlock{true};
     } else {
-        (blocks[num] == 'I') {
         return new iBlock{true};
     }
 }
