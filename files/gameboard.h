@@ -21,7 +21,7 @@ class Gameboard: public Board {
     Block *curBlock = nullptr;
     Block *nextBlock = nullptr;
     public:
-    Gameboard(int columns, int rows, std::string name, int level);
+    Gameboard(int columns, int rows, std::string name, int lvl);
     ~Gameboard();
     void build();
     void restart();
