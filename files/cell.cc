@@ -19,3 +19,5 @@ void Cell::unsetPiece() {
 }
 
 bool Cell:isoccupied() { return occupied; }
+
+char Cell::getPiece() { return board_piece; }
