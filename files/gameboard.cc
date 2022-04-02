@@ -30,7 +30,7 @@ void Gameboard::restart() {
     curScore = 0;
 }
 
-int Gameboard::score?() {
+int Gameboard::getscore() {
 	return cur_score;
 }
 
@@ -117,16 +117,16 @@ void Gameboard::adjustboard() {
 			if(flag) {
 				int row_cleared = curBlock->getY()+i-1;
 				for(k = 0; k < columns, ++k) {
-					bool delete? = true;
+					bool delete = true;
 					for(l = 0; l < 4; ++l) {
 						if(oldBlocks[k][l].getY() == row_cleared) 
 							oldBlocks[k][l].setClear(true);
 						if(!oldBlocks[k][l].getClear())
-							delete? = false;
+							delete = false;
 						if(oldBlocks[k].size() == 1)
 							break;
 					}
-					if(delete? true) {
+					if(delete true) {
 						int lvl_gen = oldBlocks[k][0].getLevel();
 						score+=pow((1+lvl_gen), 2);
 						oldBlocks.erase(oldBlocks.begin()+k);
@@ -156,7 +156,7 @@ void Gameboard::adjustboard() {
 		//if(lvl == 4) //streak=0
 	}
 	if(lines_cleared >= 2) 
-		!effect?;
+		!iseffect;
 	delte curBlock;
 }
 
@@ -177,19 +177,19 @@ void Gameboard::rmblock() {
 void Gameboard::lvlchange(int lvl, string sequence) {
 	delete level;
 	if(lvl == 4) {
-		(random)?level = new Level_4(true):level = new Level_4(false, sequence);
+		(random)?level = new Level4(true):level = new Level4(false, sequence);
 		this->lvl = lvl;
 	} else if(lvl == 3) {
-		(random)?level = new Level_3(true):level = new Level_3(false, sequence);
+		(random)?level = new Level3(true):level = new Level3(false, sequence);
 		this->lvl = lvl;
         } else if(lvl == 2) {
-		(random)?level = new Level_2(true):level = new Level_2(false, sequence);
+		(random)?level = new Level2(true):level = new Level2(false, sequence);
 		this->lvl = lvl;
         } else if(lvl == 1) {
-		(random)?level = new Level_1(true):level = new Level_1(false, sequence);
+		(random)?level = new Level1(true):level = new Level1(false, sequence);
 		this->lvl = lvl;
         } else if(lvl == 0) {
-		level = new Level_0(sequence);
+		level = new Level0(sequence);
 	}
 }
 
@@ -207,19 +207,19 @@ Level* Gameboard::getLevel() { return level; }
 string Gameboard::getName() { return name; }
 int Gameboard::getLvl() { return lvl; }
 
-int Gameboard::effectneeded?(int effect) {
+int Gameboard::getSeteffectneeded(int effect) {
 	if(effect == -1) {
-		(effect?)? return 1 : return 0;
+		(iseffect)? return 1 : return 0;
 	} else if(effect == 0) {
-		effect? = false;
+		iseffect = false;
 		return -1;
 	} else {
-		effect? = true;
+		iseffect = true;
 		return -1;
 	}
 }
 
-int Gameboard::blind?(int eff_blind) {
+int Gameboard::getSetBlind(int eff_blind) {
         if(eff_blind == -1) {
                 (blind)? return 1 : return 0;
         } else if(eff_blind == 0) {
@@ -231,7 +231,7 @@ int Gameboard::blind?(int eff_blind) {
         }
 }
 
-int Gameboard::force?(int eff_force) {
+int Gameboard::getSetForce(int eff_force) {
         if(eff_force == -1) {
                 (force)? return 1 : return 0;
         } else if(eff_force == 0) {
@@ -243,7 +243,7 @@ int Gameboard::force?(int eff_force) {
         }
 }
 
-int Gameboard::heavy?(int eff_heavy) {
+int Gameboard::getSetHeavy(int eff_heavy) {
         if(eff_heavy == -1) {
                 (heavy)? return 1 : return 0;
         }
@@ -278,4 +278,3 @@ int Gameboard::set_highscore(int hiscore, bool get) {
 int Gameboard::getCols() { return columns; }
 int Gameboard::getRows() { return rows; }
 <vector<vector<Cell>>& Gameboard::getGameboardRef() { return board; }
-	
