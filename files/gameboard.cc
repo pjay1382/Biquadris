@@ -55,7 +55,7 @@ bool Gameboard::move(int lr, int ud, int rotate_amt) {
 				if(board_piece_nomove != '.') {
 					if(pos_ud_nomove < 0 || pos_ud_nomove>= rows || pos_lr_nomove < 0 || pos_ud_nomove >= columns) 
 						flag = false;
-					if(board[pos_ud_nomove][pos_lr_nomove].isoccupied)
+					if(board[pos_ud_nomove][pos_lr_nomove].isoccupied())
 						flag = false;
 				}
 				if(board_piece_move != '.') {
@@ -65,26 +65,26 @@ bool Gameboard::move(int lr, int ud, int rotate_amt) {
 							(pos_ud_move < curBlock->get_row() || pos_ud_move < (curBlock->get_row()+3) || 
 							 pos_lr_move < curBlock->get_col() || pos_lr_move < (curBlock->get_col()+3)))
 						flag = false;
-					if(board[pos_ud_move][pos_lr_move].isoccupied && curBlock->get_block()[curBlock->get_rotate()][i+ud][j+lr] == '.')
+					if(board[pos_ud_move][pos_lr_move].isoccupied() && curBlock->get_block()[curBlock->get_rotate()][i+ud][j+lr] == '.')
 						flag = false;
 				}
 			}
 		}
 	}
 	if(flag == false) return false;	
-	this->remblock();
+	rmblock();
 	for(i = 1; i <= 4; ++i) {
 		for(j = 1; j <= 4; ++j) {
 			int pos_ud_move = curBlock->get_row() + i - 1 + ud;
 			int pos_lr_move = curBlock->get_col() + j - 1 + lr;
 			char board_piece_move = curBlock->get_block()[actual_rotate][i - 1][j - 1];
 			if(board_piece_move != '.') {
-				board[pos_ud_move][pos_ul_move].setPiece(board_piece_move);
+				board[pos_ud_move][pos_lr_move].setPiece(board_piece_move);
 			}
 		}
 	}
-	curBlock->setCol(curBlock->get_col() + lr);
-	curBlock->setRow(curBlock->get_row() + ud);
+	curBlock->set_col(curBlock->get_col() + lr);
+	curBlock->set_row(curBlock->get_row() + ud);
 	curBlock->set_rotate(actual_rotate);
 	return true;
 }
@@ -94,7 +94,8 @@ void Gameboard::addOldBlock(int lvl) {
 	int i, j;
 	for(j = 1; j <= 4; ++j) {
 		for(i = 1; i <= 4; ++i) {
-			(curBlock->getBlock()[curBlock->get_rotate()][j - 1][i - 1] != '.') ? block.push_back(Existing((curBlock->get_row()+i-1), lvl)) : continue;
+			if (curBlock->get_block()[curBlock->get_rotate()][j - 1][i - 1] != '.') 
+				oldBlock.push_back(Existing((curBlock->get_row()+i-1), lvl));
 		}
 	}
 	oldblocks.push_back(oldBlock);
@@ -109,11 +110,11 @@ void Gameboard::unset(int row, int col) {
 }
 
 void Gameboard::adjustboard() {
-	if(oldBlocks[oldBlocks.size()-1][0].getLevel() == 4) {
+	if(oldblocks[oldblocks.size()-1][0].getLevel() == 4) {
 		if(curBlock->get_block_type() != '*') {
-			level->inc_streak();
+			(static_cast<Level4*> level)->inc_streak();
 		} else {
-			level->set_streak();
+			(static_cast<Level4*> level)->set_streak(0);
 		}
 	}
 	int lines_cleared=0, i, j, k, l;
@@ -121,7 +122,7 @@ void Gameboard::adjustboard() {
 		if(curBlock->get_row()+i-1 < rows) {
 			int flag = 1;
 			for(j = 1; j <= 4; ++j) {
-				(!board[curBlock->get_row()+i-1][j-1].isoccupied) ? {flag = 0; break;} : continue;
+				if (!board[curBlock->get_row()+i-1][j-1].isoccupied()) {flag = 0; break;}
 			}
 			if(flag) {
 				int row_cleared = curBlock->get_row()+i-1;
@@ -129,14 +130,14 @@ void Gameboard::adjustboard() {
 					bool deleted = true;
 					for(l = 0; l < 4; ++l) {
 						if(oldblocks[k][l].getRow() == row_cleared) 
-							oldBlocks[k][l].setClear(true);
-						if(!oldblocks[k][l].getClear())
+							oldblocks[k][l].setClear(true);
+						if(!oldblocks[k][l].getRemove())
 							deleted = false;
 						if(oldblocks[k].size() == 1)
 							break;
 					}
 					if(deleted) {
-						int lvl_gen = oldBlocks[k][0].getLevel();
+						int lvl_gen = oldblocks[k][0].getLevel();
 						curScore+=pow((1+lvl_gen), 2);
 						oldblocks.erase(oldblocks.begin()+k);
 					}
@@ -154,15 +155,15 @@ void Gameboard::adjustboard() {
 		}
 	}
 	if(lines_cleared) {
-		for(i = 0; i < oldBlocks.size(); ++i) {
+		for(i = 0; i < oldblocks.size(); ++i) {
 			for(j = 0; j < 4; j++) {
-				oldBlocks[i][j].setRow(oldBlocks[i][j].getRow() + lines_cleared);
+				oldBlocks[i][j].setRow(oldblocks[i][j].getRow() + lines_cleared);
 				if(oldBlocks[i].size() == 1)
 					break;
 			}
 		}
-		score+ = pow((lvl+lines_cleared), 2);
-		//if(lvl == 4) //streak=0
+		curScore += pow((lvl+lines_cleared), 2);
+		if(lvl == 4) (static_cast<Level4*>level)->set_streak(0);
 	}
 	if(lines_cleared >= 2) 
 		iseffect = !iseffect;
@@ -175,7 +176,7 @@ void Gameboard::rmblock() {
 		 for(j = 1; j <= 4; ++j) {
 			 int pos_ud_nomove = curBlock->get_row() + i - 1;
 			 int pos_lr_nomove = curBlock->get_col() + j - 1;
-			 char board_piece_nomove = curBlock->getBlock()[curBlock->get_rotate()][i - 1][j - 1];
+			 char board_piece_nomove = curBlock->get_block()[curBlock->get_rotate()][i - 1][j - 1];
 			 if(board_piece_nomove != '.') {
 				 board[pos_ud_nomove][pos_lr_nomove].unsetPiece();
 			 }
@@ -230,7 +231,8 @@ int Gameboard::getSeteffectneeded(int effect) {
 
 int Gameboard::getSetBlind(int eff_blind) {
         if(eff_blind == -1) {
-                (blind == true)? return 1 : return 0;
+                if (blind == true) return 1;
+	        else return 0;
         } else if(eff_blind == 0) {
                 blind = false;
                 return -1;
@@ -242,7 +244,8 @@ int Gameboard::getSetBlind(int eff_blind) {
 
 int Gameboard::getSetForce(int eff_force) {
         if(eff_force == -1) {
-                (force == true)? return 1 : return 0;
+                if (force == true) return 1;
+	        else return 0;
         } else if(eff_force == 0) {
                 force = false;
                 return -1;
@@ -254,7 +257,8 @@ int Gameboard::getSetForce(int eff_force) {
 
 int Gameboard::getSetHeavy(int eff_heavy) {
         if(eff_heavy == -1) {
-                (heavy == true)? return 1 : return 0;
+                if (heavy == true) return 1;
+	        else return 0;
         }
         else if(eff_heavy == 0) {
                 heavy = false;
@@ -269,7 +273,8 @@ void Gameboard::add_effect(Gameboard &g) {}
 
 int Gameboard::getSetGameOver(int over) {
         if(over == -1) {
-                (isgameOver == true)? return 1 : return 0;
+               if (isgameOver == true) return 1;
+	       else return 0;
         }
         else if(over == 0) {
                 isgameOver = false;
@@ -281,11 +286,11 @@ int Gameboard::getSetGameOver(int over) {
 }
 
 int Gameboard::set_highscore(int hiscore, bool get) {
-	(get == true) ? return highscore;
+	if(get == true) return highscore;
 	highScore = hiscore;
 	return -1;
 }
 
 int Gameboard::getCols() { return columns; }
 int Gameboard::getRows() { return rows; }
-<vector<vector<Cell>>& Gameboard::getGameboardRef() { return board; }
+vector<vector<Cell>>& Gameboard::getGameboardRef() { return board; }
