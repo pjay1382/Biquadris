@@ -18,7 +18,7 @@ Level1::~Level1() {}
 Block *Level1::next_block(int index) {
     int num;
     if (!(random)) {
-        get_block();
+        getblock();
         num = index % blocks.size();        
     } else {
         blocks.clear();
