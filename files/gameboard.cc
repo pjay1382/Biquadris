@@ -1,5 +1,11 @@
 #include "gameboard.h"
 #include "cell.h"
+#include "block.h"
+#include "level_0.h"
+#include "level_1.h"
+#include "level_2.h"
+#include "level_3.h"
+#include "level_4.hh"
 
 #include <vector>
 
