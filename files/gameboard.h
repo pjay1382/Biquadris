@@ -2,7 +2,7 @@
 #define _GAMEBOARD_H_
 #include <vector>
 #include <string>
-class Gameboard {
+class Gameboard: public Board {
     int columns;
     int rows;
     vector<vector<Cell>> board;
