@@ -23,7 +23,8 @@ Gameboard::~Gameboard() {
 
 void Gameboard::build() {
     for (int i = 0; i < rows; ++i) {
-        board.push_back(vector<Cell>);
+	vector<Cell> cellrow;
+        board.push_back(cellrow);
         for (int j = 0; j < columns; ++j) {
             board[i].push_back(Cell(i, j));
         }
