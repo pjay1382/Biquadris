@@ -13,7 +13,7 @@ void Force::add_effect(Gameboard &g) {
         	bool isheavy = false;
         	if (g.getLvl() >= 4) isheavy = true;
         	Block* nextBlock = nullptr;
-        	Block* curBlock = g.getCur()
+        	Block* curBlock = g.getCur();
         	if (block == 'S') nextBlock = new sBlock{isheavy};
         	else if (block == 'Z') nextBlock = new zBlock{isheavy};
         	else if (block == 'T') nextBlock = new tBlock{isheavy};
