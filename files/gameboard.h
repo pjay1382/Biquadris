@@ -54,5 +54,7 @@ class Gameboard: public Board {
     int getSetGameOver(int over);
     void rmblock();
     vector<vector<Cell>>& getGameboardRef();
+    int getCols();
+    int getRows();
 };
 #endif
