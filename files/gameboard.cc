@@ -112,9 +112,9 @@ void Gameboard::unset(int row, int col) {
 void Gameboard::adjustboard() {
 	if(oldblocks[oldblocks.size()-1][0].getLevel() == 4) {
 		if(curBlock->get_block_type() != '*') {
-			(static_cast<Level4*> level)->inc_streak();
+			static_cast<Level4*>(level) ->inc_streak();
 		} else {
-			(static_cast<Level4*> level)->set_streak(0);
+			static_cast<Level4*>(level)->set_streak(0);
 		}
 	}
 	int lines_cleared=0, i, j, k, l;
@@ -130,7 +130,7 @@ void Gameboard::adjustboard() {
 					bool deleted = true;
 					for(l = 0; l < 4; ++l) {
 						if(oldblocks[k][l].getRow() == row_cleared) 
-							oldblocks[k][l].setClear(true);
+							oldblocks[k][l].setRemove(true);
 						if(!oldblocks[k][l].getRemove())
 							deleted = false;
 						if(oldblocks[k].size() == 1)
@@ -144,7 +144,8 @@ void Gameboard::adjustboard() {
 				}
 				for(k = lines_cleared-1; k > 0; --k) {
 					for(l = 0; l < columns; ++l) {
-						(board[k][l].isoccupied) ? board[k+1][j].setPiece(board[k][l].getPiece()) : board[k+1][j].unsetPiece();
+						if (board[k][l].isoccupied()) board[k+1][j].setPiece(board[k][l].getPiece());
+						else board[k+1][j].unsetPiece();
 					}
 				}
 				for(k = 1; k <= columns; ++k) {
@@ -157,13 +158,13 @@ void Gameboard::adjustboard() {
 	if(lines_cleared) {
 		for(i = 0; i < oldblocks.size(); ++i) {
 			for(j = 0; j < 4; j++) {
-				oldBlocks[i][j].setRow(oldblocks[i][j].getRow() + lines_cleared);
-				if(oldBlocks[i].size() == 1)
+				oldblocks[i][j].setRow(oldblocks[i][j].getRow() + lines_cleared);
+				if(oldblocks[i].size() == 1)
 					break;
 			}
 		}
 		curScore += pow((lvl+lines_cleared), 2);
-		if(lvl == 4) (static_cast<Level4*>level)->set_streak(0);
+		if(lvl == 4) static_cast<Level4*>(level)->set_streak(0);
 	}
 	if(lines_cleared >= 2) 
 		iseffect = !iseffect;
@@ -184,19 +185,23 @@ void Gameboard::rmblock() {
 	 }
 }
 
-void Gameboard::lvlchange(int lvl, string sequence) {
+void Gameboard::lvlChange(int lvl, string sequence) {
 	delete level;
 	if(lvl == 4) {
-		(random)?level = new Level4(true):level = new Level4(false, sequence);
+		if (random) level = new Level4(true); 
+		else level = new Level4(false, sequence);
 		this->lvl = lvl;
 	} else if(lvl == 3) {
-		(random)?level = new Level3(true):level = new Level3(false, sequence);
+		if (random) level = new Level3(true); 
+		else level = new Level3(false, sequence);
 		this->lvl = lvl;
         } else if(lvl == 2) {
-		(random)?level = new Level2(true):level = new Level2(false, sequence);
+		if (random) level = new Level2(true); 
+		else level = new Level2(false, sequence);
 		this->lvl = lvl;
         } else if(lvl == 1) {
-		(random)?level = new Level1(true):level = new Level1(false, sequence);
+		if (random) level = new Level1(true); 
+		else level = new Level1(false, sequence);
 		this->lvl = lvl;
         } else if(lvl == 0) {
 		level = new Level0(sequence);
@@ -219,7 +224,8 @@ int Gameboard::getLvl() { return lvl; }
 
 int Gameboard::getSeteffectneeded(int effect) {
 	if(effect == -1) {
-		(iseffect == true)? return 1 : return 0;
+		if (iseffect == true) return 1; 
+		else return 0;
 	} else if(effect == 0) {
 		iseffect = false;
 		return -1;
@@ -286,7 +292,7 @@ int Gameboard::getSetGameOver(int over) {
 }
 
 int Gameboard::set_highscore(int hiscore, bool get) {
-	if(get == true) return highscore;
+	if(get == true) return highScore;
 	highScore = hiscore;
 	return -1;
 }
