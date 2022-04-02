@@ -8,7 +8,7 @@
 class Force: public Effects {
     char block_type;
     public:
-        Force(Board *board);
+        Force(Board *board, char block_type);
         void add_effect(Gameboard &g) override;
         ~Force();
 };
