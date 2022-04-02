@@ -3,7 +3,7 @@
 
 using namespace std;
 
-Force::Force(Board *board, char bock_type) : Effects{board}, bock_type{block_type} {}
+Force::Force(Board *board, char block_type) : Effects{board}, block_type{block_type} {}
 
 
 void Force::add_effect(Gameboard &g) {
