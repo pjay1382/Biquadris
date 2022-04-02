@@ -4,14 +4,14 @@
 #include <vector>
 using namespace std;
 
-vector<string> rotate1 {
+vector<string> lvl4rotate1 {
         "....",
         "....",
         "....",
         "*..."
 };
 
-vector<vector<string>> lvl4Block::lvl4BlockRotations = {rotate1, rotate1, rotate1, rotate1};
+vector<vector<string>> lvl4Block::lvl4BlockRotations = {lvl4rotate1, lvl4rotate1, lvl4rotate1, lvl4rotate1};
 
 lvl4Block::lvl4Block() : Block(5, 0, 0, false, false) {}
 
