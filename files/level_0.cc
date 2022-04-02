@@ -29,7 +29,7 @@ Block *Level0::next_block(int index) {
         return new oBlock{true};
     } else if (blocks[num] == 'J') {
         return new jBlock{true};
-    } else {
+    } else if (blocks[num] == 'I') {
         return new iBlock{true};
     }
 }
