@@ -26,7 +26,7 @@ void Gameboard::build() {
 	vector<Cell> cellrow;
         board.push_back(cellrow);
         for (int j = 0; j < columns; ++j) {
-            board[i].push_back(Cell(i, j));
+            board[i].push_back(Cell(i, j, this));
         }
     }
 }
