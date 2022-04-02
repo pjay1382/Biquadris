@@ -5,7 +5,7 @@ class Gameboard;
 
 class Board {
     public:
-        virtual void add_effect(Gameboard &gameboard) = 0;
+        virtual void add_effect(Gameboard &g) = 0;
         virtual ~Board();
 };
 
