@@ -5,8 +5,8 @@
 
 using namespace std;
 
-Gameboard::Gameboard(int columns, int rows, string name, int level): columns{columns}, rows{rows}, name{name}, level{level}  {
-    this->build();
+Gameboard::Gameboard(int columns, int rows, string name, int level): columns{columns}, rows{rows}, name{name}, lvl{lvl}  {
+    build();
 }
 
 Gameboard::~Gameboard() { 
