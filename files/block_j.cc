@@ -4,35 +4,35 @@
 #include <vector>
 using namespace std;
 
-vector<string> rotate1 {
+vector<string> jrotate1 {
         "....",
         "....",
         "J...",
         "JJJ."
 };
 
-vector<string> rotate2 {
+vector<string> jrotate2 {
         "....",
         "JJ..",
         "J...",
         "J..."
 };
 
-vector<string> rotate3 {
+vector<string> jrotate3 {
         "....",
         "....",
         "JJJ.",
         "..J."
 };
 
-vector <string> rotate4 {
+vector <string> jrotate4 {
         "....",
         ".J..",
         ".J..",
         "JJ.."
 };
 
-vector<vector<string>> jBlock::jBlockRotations = {rotate1, rotate2, rotate3, rotate4};
+vector<vector<string>> jBlock::jBlockRotations = {jrotate1, jrotate2, jrotate3, jrotate4};
 
 jBlock::jBlock(bool heavy_effect) : Block(0, 0, 0, false, heavy_effect) {}
 
