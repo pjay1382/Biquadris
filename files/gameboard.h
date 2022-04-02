@@ -49,17 +49,17 @@ bool Gameboard::move(int lr, int ud, int rotate_amt) {
 				if(board_piece_nomove != '.') {
 					if(pos_ud_nomove < 0 || pos_ud_nomove>= rows || pos_lr_nomove < 0 || pos_ul_nomove >= columns) 
 						flag = false;
-					if(board[pos_ud_nomove][pos_lr_nomove].occupied?)
+					if(board[pos_ud_nomove][pos_lr_nomove].isoccupied)
 						flag = false;
 				}
 				if(board_piece_move != '.') {
 					if(pos_ud_move < 0 || pos_ud_move >= columns || pos_lr_move < 0 || pos_lr_move >= rows)
 						flag = false;
-					if(board[pos_ud_move][pos_lr_move].occupied? && 
+					if(board[pos_ud_move][pos_lr_move].isoccupied && 
 							(pos_ud_move < curBlock->getY() || pos_ud_move < (curBlock->getY()+3) || 
 							 pos_lr_move < curBlock->getX() || pos_lr_move < (curBlock->getX()+3)))
 						flag = false;
-					if(board[pos_ud_move][pos_lr_move].occupied? && curBlock->getBlock()[curBlock->getrotate()][i+up][j+lr] == '.')
+					if(board[pos_ud_move][pos_lr_move].isoccupied && curBlock->getBlock()[curBlock->getrotate()][i+up][j+lr] == '.')
 						flag = false;
 				}
 			}
@@ -112,7 +112,7 @@ void Gameboard::adjustboard() {
 		if(curBlock->getY()+i-1 < rows) {
 			int flag = 1;
 			for(j = 1; j <= 4; ++j) {
-				(!board[curBlock()getY()+i-1][j-1].occupied?) ? {flag = 0; break;} : continue;
+				(!board[curBlock()getY()+i-1][j-1].isoccupied) ? {flag = 0; break;} : continue;
 			}
 			if(flag) {
 				int row_cleared = curBlock->getY()+i-1;
@@ -134,7 +134,7 @@ void Gameboard::adjustboard() {
 				}
 				for(k = lines_cleared-1; k > 0; --k) {
 					for(l = 0; l < columns; ++l) {
-						(board[k][l].occupied?) ? board[k+1][j].setPiece(board[k][l].getPiece()) : board[k+1][j].unsetPiece();
+						(board[k][l].isoccupied) ? board[k+1][j].setPiece(board[k][l].getPiece()) : board[k+1][j].unsetPiece();
 					}
 				}
 				for(k = 1; k <= columns; ++k) {
