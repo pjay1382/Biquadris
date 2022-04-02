@@ -8,7 +8,7 @@
 
 using namespace std;
 
-Level4::Level4(bool random, string file_name = ""): random{random}, 
+Level4::Level4(bool random, string file_name): random{random}, 
     file_name{file_name} { blocks.clear(); }
 
 
@@ -18,7 +18,7 @@ Level4::~Level4() {}
 Block *Level4::next_block(int index) {
     int num;
     if (!(random)) {
-        get_block();
+        getblock();
         num = index % blocks.size();        
     } else {
         blocks.clear();
@@ -61,7 +61,7 @@ void Level4::getblock(){
         inp.open(file_name);
         inp>>block_piece;
         while(true) {
-            if(block_piece != nullptr) blocks.emplace_back(block_piece);
+            if(block_piece != "") blocks.emplace_back(block_piece);
             else break;
             inp>>block_piece;
         }
