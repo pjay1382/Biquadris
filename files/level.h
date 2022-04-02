@@ -26,3 +26,4 @@ class Level {
         virtual void get_block() = 0;
 };
 
+#endif
