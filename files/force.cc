@@ -24,8 +24,8 @@ void Force::add_effect(Gameboard &g) {
         	else return;
         	nextBlock->set_col(curBlock->get_col());
         	nextBlock->set_row(curBlock->get_row());
-        	g.unsetBlock();
-        	g.setCurBlock(nextBlock);
+        	g.rmblock();
+        	g.CurBlock(nextBlock);
         	if (g.move(0, 0, 0)) delete curBlock;
 		else {
                 	g.CurBlock(curBlock);
