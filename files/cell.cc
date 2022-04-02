@@ -17,3 +17,5 @@ void Cell::unsetPiece() {
 	occupied = false;
 	board_piece = ' ';
 }
+
+void Cell:isoccupied() { return occupied; }
