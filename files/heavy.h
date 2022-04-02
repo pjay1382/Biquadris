@@ -2,7 +2,7 @@
 #define HEAVY_H
 
 #include "effects.h"
-#include "gameboard.h"
+#include "board.h"
 
 
 class Heavy: public Effects {
