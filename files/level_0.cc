@@ -1,9 +1,7 @@
 #include "level_0.h"
-#include <stdlib.h>
 #include <fstream>
 #include <iostream>
 #include <string>
-#include <vector>
 #include "block.h"
 
 using namespace std;
