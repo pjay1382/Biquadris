@@ -18,10 +18,10 @@ class Level0 : public Level {
         Level0(bool random = false, std::string file_name = "");
         ~Level0() override;
         Block *next_block(int index) override;
-        int get_lvl() override;
-        bool is_random() override;
-        std::string get_file() override;
-        void get_block() override;
+        int getlvl() override;
+        bool israndom() override;
+        std::string getfile() override;
+        void getblock() override;
 };
 
 #endif
