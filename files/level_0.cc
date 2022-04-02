@@ -36,16 +36,16 @@ Block *Level0::next_block(int index) {
 
 
 
-int Level0::get_lvl() { return cur_lvl; }
+int Level0::getlvl() { return cur_lvl; }
 
 
-bool Level0::is_random() { return random; }
+bool Level0::israndom() { return random; }
 
 
-string Level0::get_file() { return file_name; }
+string Level0::getfile() { return file_name; }
 
 
-void Level0::get_block(){
+void Level0::getblock(){
     if (!(random)) {
         char block_piece;
         inp.open(file_name);
