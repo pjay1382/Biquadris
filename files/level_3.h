@@ -11,7 +11,7 @@
 class Level3 : public Level {
     int cur_lvl = 3;
     bool random = true;
-    ifstream inp;
+    std::ifstream inp;
     std::string file_name;
 
     public:
