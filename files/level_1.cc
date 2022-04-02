@@ -8,7 +8,7 @@
 
 using namespace std;
 
-Level1::Level1(bool random, string file_name = ""): random{random}, 
+Level1::Level1(bool random, string file_name): random{random}, 
     file_name{file_name} {}
 
 
