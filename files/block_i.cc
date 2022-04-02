@@ -4,21 +4,21 @@
 #include <vector>
 using namespace std;
 
-vector<string> rotate1 {
+vector<string> irotate1 {
         "....",
         "....",
         "....",
         "IIII"
 };
 
-vector<string> rotate2 {
+vector<string> irotate2 {
         "I...",
         "I...",
         "I...",
         "I..."
 };
 
-vector<vector<string>> iBlock::iBlockRotations = {rotate1, rotate2, rotate1, rotate2};
+vector<vector<string>> iBlock::iBlockRotations = {irotate1, irotate2, irotate1, irotate2};
 
 iBlock::iBlock(bool heavy_effect) : Block(0, 0, 0, false, heavy_effect) {}
 
