@@ -2,6 +2,12 @@
 #define _GAMEBOARD_H_
 #include <vector>
 #include <string>
+#include "cell.h"
+#include "block.h"
+#include "level.h"
+#include "existing.h"
+#include "board.h"
+
 class Gameboard: public Board {
     int columns;
     int rows;
