@@ -1,5 +1,5 @@
 #include "force.h"
-#include "board.h"
+#include "gameboard.h"
 
 using namespace std;
 
