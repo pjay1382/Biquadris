@@ -4,21 +4,21 @@
 #include <vector>
 using namespace std;
 
-vector<string> rotate1 {
+vector<string> zrotate1 {
         "....",
         "....",
         "ZZ..",
         ".ZZ."
 };
 
-vector<string> rotate2 {
+vector<string> zrotate2 {
         "....",
         ".Z..",
         "ZZ..",
         "Z..."
 };
 
-vector<vector<string>> zBlock::zBlockRotations = {rotate1, rotate2, rotate1, rotate2};
+vector<vector<string>> zBlock::zBlockRotations = {zrotate1, zrotate2, zrotate1, zrotate2};
 
 zBlock::zBlock(bool heavy_effect) : Block(0, 0, 0, false, heavy_effect) {}
 
