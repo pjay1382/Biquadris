@@ -35,7 +35,7 @@ class Gameboard: public Board {
     void unset(int row, int col);
     bool move(int left, int right, int rotate_pos);
     void addOldBlock(int lvl);
-    void lvlChange(int lvl, string sequence);
+    void lvlChange(int lvl, std::string sequence);
     void adjustboard();
     void CurBlock(Block* current);
     void NextBlock(Block* next);
@@ -53,7 +53,7 @@ class Gameboard: public Board {
     virtual void add_effect(Gameboard &g) override;
     int getSetGameOver(int over);
     void rmblock();
-    vector<vector<Cell>>& getGameboardRef();
+    std::vector<std::vector<Cell>>& getGameboardRef();
     int getCols();
     int getRows();
 };
