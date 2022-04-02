@@ -8,7 +8,7 @@ Heavy::Heavy(Board *board) : Effects{board} {}
 void Heavy::add_effect(Gameboard &g) {
 	board->add_effect(g);
 	
-	if (g.getSetHeavy()) {
+	if (g.getSetHeavy(-1)) {
 		g.getCur()->getSetHeavy(1);
 	}
 }
