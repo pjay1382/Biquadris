@@ -2,6 +2,7 @@
 #include "block_j.h"
 #include <string>
 #include <vector>
+using namespace std;
 
 vector<string> rotate1 {
         "....",
