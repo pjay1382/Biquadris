@@ -21,7 +21,7 @@ Block *Level3::next_block(int index) {
         get_block();
         num = index % blocks.size();        
     } else {
-        blocks.clear;
+        blocks.clear();
         blocks = {'Z', 'Z', 'S', 'S', 'L', 'T', 'O', 'J', 'I'};
         num = rand() % blocks.size();
     }
@@ -37,8 +37,7 @@ Block *Level3::next_block(int index) {
         return new oBlock{true};
     } else if (blocks[num] == 'J') {
         return new jBlock{true};
-    } else {
-        (blocks[num] == 'I') {
+    } else if (blocks[num] == 'I') {
         return new iBlock{true};
     }
 }
