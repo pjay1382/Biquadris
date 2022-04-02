@@ -8,7 +8,7 @@
 
 using namespace std;
 
-Level3::Level3(bool random, string file_name = ""): random{random}, 
+Level3::Level3(bool random, string file_name): random{random}, 
     file_name{file_name} {}
 
 
@@ -18,7 +18,7 @@ Level3::~Level3() {}
 Block *Level3::next_block(int index) {
     int num;
     if (!(random)) {
-        get_block();
+        getblock();
         num = index % blocks.size();        
     } else {
         blocks.clear();
@@ -59,7 +59,7 @@ void Level3::getblock(){
         inp.open(file_name);
         inp>>block_piece;
         while(true) {
-            if(block_piece != nullptr) blocks.emplace_back(block_piece);
+            if(block_piece != "") blocks.emplace_back(block_piece);
             else break;
             inp>>block_piece;
         }
