@@ -10,33 +10,33 @@ void Force::add_effect(Gameboard &g) {
 	absboard->apply(g);
 
 	if(g.getSetForce()) {
-        	bool heavy = false;
+        	bool isheavy = false;
         	if (g.getLevel() == 3 || g.getLevel() == 4) {
-			heavy = true;
+			isheavy = true;
             }
 
         	Block * oldBlock = g.getCurBlock();
         	Block * newBlock = nullptr;
         	if (block == 'I') {
-			newBlock = new Iblock{heavy};
+			newBlock = new Iblock{isheavy};
             }
         	else if (block == 'J') {
-                	newBlock = new Jblock{heavy};
+                	newBlock = new Jblock{isheavy};
         	}
         	else if (block == 'L') {
-                	newBlock = new Lblock{heavy};
+                	newBlock = new Lblock{isheavy};
         	}
         	else if (block == 'O') {
-                	newBlock = new Oblock{heavy};
+                	newBlock = new Oblock{isheavy};
         	}
         	else if (block == 'S') {
-                	newBlock = new Sblock{heavy};
+                	newBlock = new Sblock{isheavy};
         	}
         	else if (block == 'Z') {
-                	newBlock = new Zblock{heavy};
+                	newBlock = new Zblock{isheavy};
         	}
         	else if (block == 'T') {
-                	newBlock = new Tblock{heavy};
+                	newBlock = new Tblock{isheavy};
         	}
         	else {
                 	return;
