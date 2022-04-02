@@ -17,6 +17,7 @@ class Cell {
 	void setPiece(char my_piece);
 	void unsetPiece();
 	bool isoccupied();
+	char getPiece();
 };
 
 #endif
