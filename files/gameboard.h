@@ -52,7 +52,7 @@ class Gameboard: public Board {
     int getSetForce(int eff_force);
     virtual void add_effect(Gameboard &g) override;
     int getSetGameOver(int over);
-    void remblock();
+    void rmblock();
     vector<vector<Cell>>& getGameboardRef();
 };
 #endif
