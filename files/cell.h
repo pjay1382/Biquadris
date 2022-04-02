@@ -16,7 +16,7 @@ class Cell {
 	void setRow(int Row);
 	void setPiece(char my_piece);
 	void unsetPiece();
-	void isoccupied();
+	bool isoccupied();
 };
 
 #endif
