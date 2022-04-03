@@ -94,12 +94,12 @@ int main(int argc, char* argv[]) {
 				if(curlvl > 0) {
 					if(curlvl == 0) {
 						curboard->setrandom(false);
-						if(p1orp2 % 2 == 0) curboard->lvlchange(curlvl, player1_file);
-						else curboard->lvlchange(curlvl, player2_file);
+						if(p1orp2 % 2 == 0) curboard->lvlChange(curlvl, player1_file);
+						else curboard->lvlChange(curlvl, player2_file);
 					}
 					else {
 						curboard->setrandom(true);
-						curboard->lvlchange(curlvl);
+						curboard->lvlChange(curlvl);
 					}
 					if(p1orp2 % 2 == 0) {
                                                 p1curlvl = curlvl;
@@ -123,13 +123,13 @@ int main(int argc, char* argv[]) {
 					}
 					ifstream fi{txtname};
 					curboard->setrandom(false);
-					curboard->lvlchange(curlevel, txtname);
+					curboard->lvlChange(curlvl, txtname);
 				}
 				//print
 				continue;
 			}
 			if(cmd == "random") {
-				int curlvl = curboard->getlvl();
+				int curlvl = curboard->getLvl();
 				if(curlvl == 3 || curlvl == 4) curboard->setrandom(true);
 				//print
 				continue;
@@ -200,7 +200,7 @@ int main(int argc, char* argv[]) {
 				curboard->CurBlock(star);
 				while(curboard->move(0,1,0)) {}
 				curboard->addOldBlock(4);
-				curboard->adjust();
+				curboard->adjustboard();
 			} else delete star;
 		}
 		if(curboard->getSeteffectneeded(-1)) {
