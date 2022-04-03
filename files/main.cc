@@ -35,8 +35,8 @@ int main(int argc, char* argv[]) {
 	int p1curlvl = p2curlvl = p1nextlvl = p2nextlvl = startinglvl;
 	vector<string> seq;
 	string cmd;
-	Level* lp1(gp1);
-	Level* lp2(gp2);
+	Board* lp1(gp1);
+	Board* lp2(gp2);
 	if(startinglvl > 0) {
 		gp1->setrandom(true);
 		gp1->lvlchange(startinglvl);
