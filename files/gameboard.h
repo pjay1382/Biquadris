@@ -35,7 +35,7 @@ class Gameboard: public Board {
     void unset(int row, int col);
     bool move(int lr, int ud, int rotate_pos);
     void addOldBlock(int lvl);
-    void lvlChange(int lvl, std::string sequence);
+    void lvlChange(int lvl, std::string sequence="");
     void adjustboard();
     void setrandom(bool setter);
     void CurBlock(Block* current);
