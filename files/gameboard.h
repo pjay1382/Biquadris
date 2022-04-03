@@ -14,7 +14,7 @@ class Gameboard: public Board {
     std::vector<std::vector<Cell>> board;
     std::vector<std::vector<Existing>> oldblocks;
     std::string name;
-    bool random = true;
+    bool randomval = true;
     bool iseffect = false;
     bool blind = false;
     bool force = false;
