@@ -32,7 +32,7 @@ int main(int argc, char* argv[]) {
 	}
 	Gameboard* gp1 = new Gameboard(numCol, numRow, player1, startinglvl);
 	Gameboard* gp2 = new Gameboard(numCol, numRow, player2, startinglvl);
-	int p1curlvl = p2curlvl = p1nextlvl = p2nextlvl = startinglvl;
+	int p1curlvl = startinglvl, p2curlvl = startinglvl, p1nextlvl = startinglvl, p2nextlvl = startinglvl;
 	vector<string> seq;
 	string cmd;
 	Board* lp1(gp1);
