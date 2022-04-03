@@ -56,7 +56,7 @@ int main(int argc, char* argv[]) {
 	gp1->move(0,0,0);
 	int p1orp2 = -1, p1 = 1, p2 = 1, hiscore = 0;
 	while(1) {
-		counter++;
+		p1orp2++;
 		//print
 		bool reset = false;
 		if(p1orp2 % 2 == 0) Gameboard* curboard = gp1;
