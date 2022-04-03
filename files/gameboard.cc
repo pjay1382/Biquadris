@@ -110,6 +110,8 @@ void Gameboard::unset(int row, int col) {
 	board[row][col].unsetPiece();
 }
 
+void setrandom(bool setter) { random = setter; }
+
 void Gameboard::adjustboard() {
 	if(oldblocks[oldblocks.size()-1][0].getLevel() == 4) {
 		if(curBlock->get_block_type() != '*') {
