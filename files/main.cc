@@ -59,8 +59,7 @@ int main(int argc, char* argv[]) {
 		p1orp2++;
 		//print
 		bool reset = false;
-		if(p1orp2 % 2 == 0) Gameboard* curboard = gp1;
-		else Gameboard* curboard = gp2;
+		Gameboard* curboard = (p1orp2 % 2 == 0) ? gp1 : gp2;
 		while(1) {
 			string cmd;
 			cin>>cmd;
