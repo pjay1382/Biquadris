@@ -27,7 +27,7 @@ int main(int argc, char* argv[]) {
 		if(argv[i] == "-seed") { srand(stoi(argv[++i])); continue; }
 		else if(argv[i] == "-scriptfile1") {  player1_file = argv[++i]; continue; }
 		else if(argv[i] == "-scriptfile2") {  player2_file = argv[++i]; continue; }
-		else if(argv[i] == "-startlevel") { startinglvl = srand(argv[++i]); continue; }
+		else if(argv[i] == "-startlevel") { startinglvl = srand(stoi(argv[++i])); continue; }
 		++i;
 	}
 	Gameboard* gp1 = new Gameboard(numCol, numRow, player1, startinglvl);
