@@ -39,14 +39,14 @@ int main(int argc, char* argv[]) {
 	Board* lp2(gp2);
 	if(startinglvl > 0) {
 		gp1->setrandom(true);
-		gp1->lvlchange(startinglvl);
+		gp1->lvlChange(startinglvl);
 		gp2->setrandom(true);
-		gp2->lvlchange(startinglvl);
+		gp2->lvlChange(startinglvl);
 	} else {
 		gp1->setrandom(false);
-		gp1->lvlchange(startinglvl, player1_file);
+		gp1->lvlChange(startinglvl, player1_file);
 		gp2->setrandom(false);
-                gp2->lvlchange(startinglvl, player2_file);
+                gp2->lvlChange(startinglvl, player2_file);
 	}
 	gp1->CurBlock((gp1->getLevel())->next_block(0));
 	gp2->CurBlock((gp2->getLevel())->next_block(0));
@@ -135,7 +135,7 @@ int main(int argc, char* argv[]) {
 				//print
 				continue;
 			}
-			if(cmd == sequence) {
+			if(cmd == "sequence") {
 				string txtname;
 				string fileseq;
 				if(seq.empty()) cin>>txtname;
@@ -147,7 +147,7 @@ int main(int argc, char* argv[]) {
 				while(fi >> fileseq) seq.push_back(fileseq);
 				continue;
 			}
-			if(cmd == restart) {
+			if(cmd == "restart") {
 				reset = true;
 				gp1->restart();
 				gp2->restart();
