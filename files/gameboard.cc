@@ -110,7 +110,7 @@ void Gameboard::unset(int row, int col) {
 	board[row][col].unsetPiece();
 }
 
-void setrandom(bool setter) { random = setter; }
+void Gameboard::setrandom(bool setter) { randomval = setter; }
 
 void Gameboard::adjustboard() {
 	if(oldblocks[oldblocks.size()-1][0].getLevel() == 4) {
@@ -191,19 +191,19 @@ void Gameboard::rmblock() {
 void Gameboard::lvlChange(int lvl, string sequence) {
 	delete level;
 	if(lvl == 4) {
-		if (random) level = new Level4(true); 
+		if (randomval) level = new Level4(true); 
 		else level = new Level4(false, sequence);
 		this->lvl = lvl;
 	} else if(lvl == 3) {
-		if (random) level = new Level3(true); 
+		if (randomval) level = new Level3(true); 
 		else level = new Level3(false, sequence);
 		this->lvl = lvl;
         } else if(lvl == 2) {
-		if (random) level = new Level2(true); 
+		if (randomval) level = new Level2(true); 
 		else level = new Level2(false, sequence);
 		this->lvl = lvl;
         } else if(lvl == 1) {
-		if (random) level = new Level1(true); 
+		if (randomval) level = new Level1(true); 
 		else level = new Level1(false, sequence);
 		this->lvl = lvl;
         } else if(lvl == 0) {
