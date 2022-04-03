@@ -33,7 +33,7 @@ class Gameboard: public Board {
     void restart();
     void set(int row, int col, char block_piece);
     void unset(int row, int col);
-    bool move(int left, int right, int rotate_pos);
+    bool move(int lr, int ud, int rotate_pos);
     void addOldBlock(int lvl);
     void lvlChange(int lvl, std::string sequence);
     void adjustboard();
