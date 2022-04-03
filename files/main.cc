@@ -250,7 +250,7 @@ int main(int argc, char* argv[]) {
 					if(p1orp2 % 2 == 0) {
                                                 gp2->getSetForce(1);
                                                 delete lp2;
-                                                lp2 = new Force(lp2);
+                                                lp2 = new Force(lp2, block_name);
                                                 lp2->add_effect(*gp2);
 						if(gp2->getSetGameOver(-1)) {
 							cout << "Gameover!" <<endl;
@@ -260,7 +260,7 @@ int main(int argc, char* argv[]) {
                                         } else {
                                                 gp1->getSetForce(1);
                                                 delete lp1;
-                                                lp1 = new Force(lp1);
+                                                lp1 = new Force(lp1, block_name);
                                                 lp1->add_effect(*gp1);
 						if(gp1->getSetGameOver(-1)) {
                                                         cout << "Gameover!" <<endl;
