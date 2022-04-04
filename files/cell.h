@@ -5,7 +5,7 @@ class Gameboard;
 class Cell {
 	int col;
 	int row;
-	char board_piece;
+	char board_piece = '.';
 	bool occupied = false;
 	Gameboard* board;
 	public:
