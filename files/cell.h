@@ -14,7 +14,7 @@ class Cell {
 	int getRow();
 	void setCol(int Col);
 	void setRow(int Row);
-	void setPiece(char my_piece);
+	void setPiece(char my_piece, bool initial);
 	void unsetPiece();
 	bool isoccupied();
 	char getPiece();
