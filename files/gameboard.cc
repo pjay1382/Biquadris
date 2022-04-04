@@ -23,11 +23,11 @@ Gameboard::~Gameboard() {
 
 void Gameboard::build() {
     for (int i = 0; i < rows; ++i) {
-	vector<Cell> cellrow;
-        board.push_back(cellrow);
+        vector<Cell> cellrow;
         for (int j = 0; j < columns; ++j) {
-            board[i].push_back(Cell(i, j, this));
+            cellrow.emplace_back(Cell(i, j, this));
         }
+        board.push_back(cellrow);
     }
 }
 
