@@ -8,8 +8,8 @@ int Cell::getRow() { return row; }
 void Cell::setCol(int Col) { col = Col; }
 void Cell::setRow(int Row) { row = Row; }
 
-void Cell::setPiece(char my_piece) {
-	occupied = true;
+void Cell::setPiece(char my_piece, bool initial) {
+	occupied = (initial) ? false : true;
 	board_piece = my_piece;
 }
 
