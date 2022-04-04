@@ -113,69 +113,7 @@ void Gameboard::unset(int row, int col) {
 }
 
 void Gameboard::setrandom(bool setter) { randomval = setter; }
-/*
-void Gameboard::adjustboard() {
-	if(oldblocks[oldblocks.size()-1][0].getLevel() == 4) {
-		if(curBlock->get_block_type() != '*') {
-			static_cast<Level4*>(level) ->inc_streak();
-		} else {
-			static_cast<Level4*>(level)->set_streak(0);
-		}
-	}
-	int lines_cleared=0, i, j, k, l;
-	for(i = 0; i < 4; ++i) {
-		if(curBlock->get_row()+i < rows) {
-			bool flag = true;
-			for(j = 0; j < columns; ++j) {
-				if (!board[curBlock->get_row()+i][j].isoccupied()) {flag = false; break;}
-			}
-			if(flag) {
-				int row_cleared = curBlock->get_row()+i-1;
-				for(k = oldblocks.size()-1; k >= 0; --k) {
-					bool deleted = true;
-					for(l = 0; l < 4; ++l) {
-						if(oldblocks[k][l].getRow() == row_cleared) 
-							oldblocks[k][l].setRemove(true);
-						if(oldblocks[k][l].getRemove() == false)
-							deleted = false;
-						if(oldblocks[k].size() == 1)
-							break;
-					}
-					if(deleted) {
-						int lvl_gen = oldblocks[k][0].getLevel();
-						curScore += pow((1+lvl_gen), 2);
-						oldblocks.erase(oldblocks.begin()+k);
-					}
-				}
-				for(k = lines_cleared-1; k > 0; --k) {
-					for(l = 0; l < columns; ++l) {
-						if (board[k][l].isoccupied()) board[k+1][j].setPiece(board[k][l].getPiece());
-						else board[k+1][j].unsetPiece();
-					}
-				}
-				for(k = 0; k < columns; ++k) {
-					board[0][k].unsetPiece();
-				}
-				++lines_cleared;
-			}
-		}
-	}
-	if(lines_cleared > 0) {
-		for(i = 0; i < oldblocks.size(); ++i) {
-			for(j = 0; j < 4; j++) {
-				oldblocks[i][j].setRow(oldblocks[i][j].getRow() + lines_cleared);
-				if(oldblocks[i].size() == 1)
-					break;
-			}
-		}
-		curScore += pow((lvl+lines_cleared), 2);
-		if(lvl == 4) static_cast<Level4*>(level)->set_streak(0);
-	}
-	if(lines_cleared >= 2) 
-		iseffect = true;
-	delete curBlock;
-}
-*/
+
 void Gameboard::adjustboard() {
 	if (oldblocks[oldblocks.size() - 1][0].getLevel() == 4) {
 		if (curBlock->get_block_type() != '*') {
