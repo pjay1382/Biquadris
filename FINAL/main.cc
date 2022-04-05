@@ -69,6 +69,7 @@ int main(int argc, char* argv[]) {
 			string cmd;
 			cin>>cmd;
 			if(cmd == "left" && curboard->validmove(-1,0,0)) { curboard->move(-1,0,0); tdisp->displayboard(gp1, gp2); }
+			if(cmd == "up" && curboard->validmove(0,-1,0)) { curboard->move(0,-1,0); tdisp->displayboard(gp1, gp2); }
 			if(cmd == "right" && curboard->validmove(1,0,0)) { curboard->move(1,0,0); tdisp->displayboard(gp1, gp2); }
 			if(cmd == "down" && curboard->validmove(0,1,0)) { curboard->move(0,1,0); tdisp->displayboard(gp1, gp2); }
 			if(cmd == "clockwise" && curboard->validmove(0,0,1)) { curboard->move(0,0,1); tdisp->displayboard(gp1, gp2); }
