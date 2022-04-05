@@ -174,7 +174,7 @@ int main(int argc, char* argv[]) {
 				break;
 			}
 			if(cmd == "quit") return 0;
-			if(curboard->getCur()->get_heavy_level()) {
+			if(curboard->getLvl() >= 3) {
 				if(curboard->validmove(0,1,0))
 					curboard->move(0,1,0);
 				else {
@@ -183,7 +183,7 @@ int main(int argc, char* argv[]) {
 					break;
 				}
 			}
-			if(curboard->getCur()->get_effect_heavy()) {
+			if(curboard->getSetHeavy()) {
 				if(cmd == "right" || cmd == "left") {
 					int i = 0;
 					for(i = 0; i < 2; i++) {if(curboard->validmove(0,1,0)) curboard->move(0,1,0); else break;}
