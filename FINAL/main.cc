@@ -32,7 +32,7 @@ int main(int argc, char* argv[]) {
 		if(flag == "-seed") srand(stoi(arg));
 		if(flag == "-scriptfile1") player1_file = arg;
 		if(flag  == "-scriptfile2") player2_file = arg;
-		if(flag == "startlevel") { startinglvl = stoi(arg); cout<<arg<<endl; }
+		if(flag == "-startlevel") { startinglvl = stoi(arg); cout<<arg<<endl; }
 		++i;
 	}
 	Gameboard* gp1 = new Gameboard(numCol, numRow, player1, startinglvl);
