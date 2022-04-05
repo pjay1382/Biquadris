@@ -37,7 +37,7 @@ int main(int argc, char* argv[]) {
 	}
 	Gameboard* gp1 = new Gameboard(numCol, numRow, player1, startinglvl);
 	Gameboard* gp2 = new Gameboard(numCol, numRow, player2, startinglvl);
-	textdisp* tdisp = new textdisp(numRow, numCol);
+	auto tdisp = make_unique<textdisp>(numRow, numCol);
 	int p1curlvl = startinglvl, p2curlvl = startinglvl, p1nextlvl = startinglvl, p2nextlvl = startinglvl;
 	string cmd;
 	shared_ptr<Board> lp1(gp1);
