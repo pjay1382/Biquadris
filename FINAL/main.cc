@@ -254,6 +254,7 @@ int main(int argc, char* argv[]) {
                                                         return 0;
                                                 }
                                         }
+					tdisp->displayboard(gp1, gp2);
                                         break;
                                 }
 			}
