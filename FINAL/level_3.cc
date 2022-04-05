@@ -26,19 +26,19 @@ Block *Level3::next_block(int index) {
         num = rand() % blocks.size();
     }
     if (blocks[num] == 'Z') { 
-        return new zBlock{false};
+        return new zBlock{true};
     } else if (blocks[num] == 'S') {
-        return new sBlock{false};
+        return new sBlock{true};
     } else if (blocks[num] == 'L') {
-        return new lBlock{false};
+        return new lBlock{true};
     } else if (blocks[num] == 'T') {
-        return new tBlock{false};
+        return new tBlock{true};
     } else if (blocks[num] == 'O') {
-        return new oBlock{false};
+        return new oBlock{true};
     } else if (blocks[num] == 'J') {
-        return new jBlock{false};
+        return new jBlock{true};
     } else if (blocks[num] == 'I') {
-        return new iBlock{false};
+        return new iBlock{true};
     }
 }
 
