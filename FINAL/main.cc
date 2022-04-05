@@ -155,12 +155,12 @@ int main(int argc, char* argv[]) {
 				gp1->NextBlock((gp1->getLevel())->next_block(1));
 				gp1->move(0,0,0);
 				gp2->restart();
-				p1orp2 = -1;
-				p1 = 1;
-				p2 = 1;
 				gp2->CurBlock((gp2->getLevel())->next_block(0));
 			 	gp2->NextBlock((gp2->getLevel())->next_block(1));
 				gp2->move(0,0,0);
+				p1orp2 = -1;
+				p1 = 1;
+				p2 = 1;
 				break;
 			}
 			if(cmd == "quit") return 0;
