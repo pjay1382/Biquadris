@@ -156,8 +156,8 @@ int main(int argc, char* argv[]) {
 				gp1->move(0,0,0);
 				gp2->restart();
 				gp2->CurBlock((gp2->getLevel())->next_block(0));
-			 	gp2->NextBlock((gp2->getLevel())->next_block(1));
-				gp2->move(0,0,0);
+                                gp2->NextBlock((gp2->getLevel())->next_block(1));
+                                gp2->move(0,0,0);
 				p1orp2 = -1;
 				p1 = 1;
 				p2 = 1;
@@ -177,8 +177,9 @@ int main(int argc, char* argv[]) {
 				if(cmd == "right" || cmd == "left") {
 					int i = 0;
 					for(i = 0; i < 2; i++) {if(curboard->validmove(0,1,0)) curboard->move(0,1,0); else break;}
-					if(!curboard->validmove(0,1,0)) {
-						curboard->addOldBlock((p1orp2 % 2 == 0) ? p1curlvl : p2curlvl);
+					if(curboard->validmove(0,1,0) == false) {
+						if(p1orp2 % 2 == 1) curboard->addOldBlock(p2curlvl);
+						else curboard->addOldBlock(p1curlvl);
 						curboard->adjustboard();
 						break;
 					}
@@ -200,7 +201,7 @@ int main(int argc, char* argv[]) {
 			else {
 				curboard->CurBlock(star);
 				while(curboard->validmove(0,1,0)) {curboard->move(0,1,0);}
-				curboard->addOldBlock(4);
+				curboard->addOldBlock(curboard->getLvl());
 				curboard->adjustboard();
 			}
 		}
