@@ -66,7 +66,7 @@ void Level4::getblock(){
 }
 
 
-void Level4::set_streak(int st) { streak = streak; }
+void Level4::set_streak(int st) { streak = st; }
 
 
 void Level4::inc_streak() { streak += 1; }
