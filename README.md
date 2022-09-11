@@ -31,8 +31,7 @@ Each player is free to choose his/her own level independently. The lower levels 
 ### Special Actions
 If a player, upon dropping a block, clears two or more rows simultaneously, a special action is triggered. A special action is a negative influence on the opponent’s game. When a special action is triggered, the game will prompt the player for his/her chosen action. Available actions are as follows:
 
-•	blind The player’s board, from columns 3-9, and from rows 3-12, is covered with question marks (?), until the player drops a block; then the display reverts to normal.
- 
+•	blind The player’s board, from columns 3-9, and from rows 3-12, is covered with question marks (?), until the player drops a block; then the display reverts to normal. 
 •	heavy Every time a player moves a block left or right, the block automatically falls by two rows, after the horizontal move. If it is not possible for the block to drop two rows, it is considered to be dropped,  and the turn ends.   If the player is already in a level in which blocks are heavy, the effect is cumulative (i.e., the player suffers from both effects).
 •	force Change the opponent’s current block to be one of the player’s choosing. If the block cannot be placed in its initial position, the opponent loses. (E.g., force Z)
 
@@ -50,7 +49,6 @@ You interact with the system by issuing text-based commands. The following comma
 •	norandom file Relevant only during levels 3 and 4, this command makes these levels non- random, instead taking input from the sequence file, starting from the beginning. This is to facilitate testing.
 •	random Relevant only during levels 3 and 4, this command restores randomness in these levels.
 •	sequence file Executes the sequence of commands found in file. This is to facilitate the construction of test cases.
- 
 •	I, J, L, etc. Useful during testing, these commands replace the current undropped block with the stated block. Heaviness is detemined by the level number. Note that, for heavy blocks, these commands do not cause a downward move.
 •	restart Clears the board and starts a new game. End-of-file (EOF) terminates the game.
 
