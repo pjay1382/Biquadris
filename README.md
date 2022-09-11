@@ -6,22 +6,7 @@ Biquadris differs from Tetris in one significant way: it is not real-time. You h
 The major components of the system are as follows:
 
 Blocks
-There are seven types of blocks, shown below with their names and initial configurations:
-
-
-IIII	  J   
-       JJJ	
-       
-  L    OO
-LLL    OO
-	
- SS    ZZ
-SS      ZZ	
-
- 
-TTT
- T
- 
+There are seven types of blocks (I, J, L, O, S, Z and T).
 
 Board
 The board should be 11 columns and 15 rows. Reserve three extra rows (total 18) at the top of the board to give room for blocks to rotate, without falling off the board. If a block is at the extreme right-hand side of the board, to the extent that there is no horizontal room to rotate it, it can’t be rotated.
