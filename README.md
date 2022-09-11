@@ -9,61 +9,27 @@ Blocks
 There are seven types of blocks, shown below with their names and initial configurations:
 
 
-IIII	J
-JJJ	L
-LLL	OO
-OO
-I-block	J-block	L-block	O-block
+IIII	  J   
+       JJJ	
+       
+  L    OO
+LLL    OO
+	
+ SS    ZZ
+SS      ZZ	
 
-SS	
-ZZ	
-TTT	
-SS	ZZ	T	
-S-block	Z-block	T-block	
-
-
-Question: How could you design your system (or modify your existing design) to allow for some generated blocks to disappear from the screen if not cleared before 10 more blocks have fallen? Could the generation of such blocks be easily confined to more advanced levels?
-Blocks can be moved and rotated. When a block is rotated, it should be done such that the position of the lower left corner of the smallest rectangle containing the block is preserved. For a clockwise rotation,  this means that the lower-right corner of the block should take the place of the lower-left corner of the original block. For a counterclockwise rotation, this means that the top-left corner of the block should take the place of the lower-left corner of the original block.  A few examples follow (clockwise rotation):
-
-|	|JJ	|	|S
-|J	|J	| SS	|SS
-|JJJ	---->	|J	|SS	---->	| S
-+---	+---	+---	+---
-The coordinate axes shown above should be understood as being fixed in space, and are there to show the position of the rotated block relative to that of the original.
  
+TTT
+ T
+ 
+
 Board
 The board should be 11 columns and 15 rows. Reserve three extra rows (total 18) at the top of the board to give room for blocks to rotate, without falling off the board. If a block is at the extreme right-hand side of the board, to the extent that there is no horizontal room to rotate it, it can’t be rotated.
 When a block shows up on the board, it appears in the top-left corner, just below the three reserve rows, such that the bottom row of the block occupies the row below the reserve rows (so, for example, a horizontal I block would use none of the reserve rows, while a vertical I block would use all of them). If there is not room for the block in this position, the game is over.
 When a block is dropped onto the board, check to see whether any rows have been completely filled as a result of the block having dropped. If so, remove those rows from the board, and the remaining blocks above these rows move down to fill the gap.
 
 Display
-You need to provide both a text-based display and a graphical display of your game board. A sample text display follows:
-
-Level:	1	Level:	2
-Score:	0	Score:	0
- 	 
-
-
-TTT	IIII
-T
-
-
-
-
-
-
-
-
-
-S	
-ZSS		S	
-ZZIS		SS	
-ZJI	J	S	OO
-OO JI	OO JTTT	OO
-IIII OOJJI	OOJJ TIIII
-Next:	Next:
-L LLL
-Your graphical display should be set up in a similar way, showing the current boards, the current blocks, the next blocks to come, and the scoreboard in a single window. The block types should be colour-coded, each type of block being rendered in a different colour. Do your best to make it visually pleasing.
+You need to provide both a text-based display and a graphical display of your game board. 
  
 Next Block
 Part of your system will encapsulate the decision-making process regarding which block is selected next. The level of difficulty of the game depends on the policy for selecting the next block. You are to support the following difficulty levels:
@@ -73,19 +39,9 @@ S and Z blocks are selected with probability 1 each, and the other blocks are se
 probability 1 each.
 •	Level 2: All blocks are selected with equal probability.
 •	Level 3: The block selector will randomly choose a block with probabilities skewed such that
-S and Z blocks are selected with probability 2 each, and the other blocks are selected with
- 
-probability 1
- 
-each.   Moreover, blocks generated in level 3 are “heavy”: every command to
- 
-move or rotate the block will be followed immediately and automatically by a downward move of one row (if possible).
+S and Z blocks are selected with probability 2 each, and the other blocks are selected with probability 1 each. Moreover, blocks generated in level 3 are “heavy”: every command to move or rotate the block will be followed immediately and automatically by a downward move of one row (if possible).
 •	Level 4: In addition to the rules of Level 3, in Level 4 there is an external constructive force: every time you place 5 (and also 10, 15, etc.) blocks without clearing at least one row, a 1x1 block (indicated by * in text, and by the colour brown in graphics) is dropped onto your game board in the centre column. Once dropped, it acts like any other block: if it completes a row, the row disappears. So if you do not act quickly, these blocks will work to eventually split your screen in two, making the game difficult to play.
 Each player is free to choose his/her own level independently. The lower levels produce a greater percentage of “easier” blocks, but the corresponding scores are also lower.
-For random numbers, you can use the rand and srand functions from <cstdlib>.
-
-Question: How could you design your program to accommodate the possibility of introducing additional levels into the system, with minimum recompilation?
-
 
 Special Actions
 If a player, upon dropping a block, clears two or more rows simultaneously, a special action is triggered. A special action is a negative influence on the opponent’s game. When a special action is triggered, the game will prompt the player for his/her chosen action. Available actions are as follows:
@@ -94,8 +50,6 @@ If a player, upon dropping a block, clears two or more rows simultaneously, a sp
  
 •	heavy Every time a player moves a block left or right, the block automatically falls by two rows, after the horizontal move. If it is not possible for the block to drop two rows, it is considered to be dropped,  and the turn ends.   If the player is already in a level in which blocks are heavy, the effect is cumulative (i.e., the player suffers from both effects).
 •	force Change the opponent’s current block to be one of the player’s choosing. If the block cannot be placed in its initial position, the opponent loses. (E.g., force Z)
-
-Question: How could you design your program to allow for multiple effects to applied simul- taneously? What if we invented more kinds of effects? Can you prevent your program from having one else-branch for every possible combination?
 
 
 Command Interpreter
@@ -114,14 +68,8 @@ You interact with the system by issuing text-based commands. The following comma
  
 •	I, J, L, etc. Useful during testing, these commands replace the current undropped block with the stated block. Heaviness is detemined by the level number. Note that, for heavy blocks, these commands do not cause a downward move.
 •	restart Clears the board and starts a new game. End-of-file (EOF) terminates the game.
-Only as much of a command as is necessary to distinguish it from other commands needs to be
-entered.  For example,  lef is enough to distinguish the left command from the levelup command, so the system should understand either lef or left as meaning left.
-In addition, commands can take a multiplier prefix, indicating that that command should be executed some number of times.  For example 3ri means move to the right by three cells.  If, for example, it is only possible to move to the right by two cells, then the block should move to the right by two cells. Similarly, 2levelu means increase the level by two. Prefixes of 0 or 1 are permitted, and mean that the comand should be run 0 times and 1 time, respectively. It is valid to apply a multiplier to the drop command. The command 3dr (or 3dro or 3drop)) means drop the current block and then drop the following two blocks from their default position. If blocks are heavy, a multiplied command is still followed by only own downword move (example: the command 3left moves the block three positions left, and then one position down). It is not valid to apply a multiplier to the restart, hint, norandom, or random commands (if a multiplier is supplied, it would have no effect).
-Although it is not required that your program respond to invalid input, we highly recommend that you arrange that invalid input (e.g., misspelled commands) not cause your program to crash. It will cost you precious time during your demo otherwise.
 
-Question: How could you design your system to accommodate the addition of new command names, or changes to existing command names, with minimal changes to source and minimal recompilation? (We acknowledge, of course, that adding a new command probably means adding a new feature, which can mean adding a non-trivial amount of code.) How difficult would it be to adapt your system to support a command whereby a user could rename existing commands (e.g. something like rename counterclockwise cc)? How  might  you  support  a  “macro”  language, which would allow you to give a name to a sequence of commands? Keep in mind the effect that all of these features would have on the available shortcuts for existing command names.
-
-The board should be redrawn, both in text and graphically, each time a command is issued. For the graphic display, redraw as little of the screen (within reason) as is necessary to make the needed changes. For multiplied commands, do not redraw after each repetition; only redraw after the end.
+The board should be redrawn each time a command is issued.
 
 Scoring
 The game is scored as follows: when a line (or multiple lines) is cleared, you score points equal to (your current level, plus number of lines) squared. (For example, clearing a line in level 2 is worth 9 points.) In addition, when a block is completely removed from the screen (i.e., when all of its cells have disappeared) you score points equal to the level you were in when the block was generated, plus one, squared. (For example if you got an O-block while on level 0, and cleared the O-block in level 3, you get 1 point.)
